@@ -1,13 +1,6 @@
 package routes
 
-import (
-	"encoding/json"
-	"net/http"
-
-	"github.com/axi93/twittgo/db"
-	"github.com/axi93/twittgo/models"
-)
-
+/*
 //Register es la funcion para crear en la DB el registro de usuario
 func Register(w http.ResponseWriter, r *http.Request) {
 	var t models.Users
@@ -47,3 +40,4 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	//El status se crea
 	w.WriteHeader(http.StatusCreated)
 }
+*/

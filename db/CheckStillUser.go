@@ -1,13 +1,6 @@
 package db
 
-import (
-	"context"
-	"time"
-
-	"github.com/axi93/twittgo/models"
-	"go.mongodb.org/mongo-driver/bson"
-)
-
+/*
 //CheckStillUser recibe un email i comprueba si esta en la base de datos
 func CheckStillUser(email string) (models.Users, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
@@ -30,3 +23,4 @@ func CheckStillUser(email string) (models.Users, bool, string) {
 	return result, true, ID
 
 }
+*/
