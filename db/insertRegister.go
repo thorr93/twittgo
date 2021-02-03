@@ -1,6 +1,13 @@
 package db
 
-/*
+import (
+	"context"
+	"time"
+
+	"github.com/axi93/twittgo/models"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
+
 //InsertRegister where its register the user into the DB
 func InsertRegister(u models.Users) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
@@ -22,4 +29,3 @@ func InsertRegister(u models.Users) (string, bool, error) {
 	//Retorno el objeto como string
 	return ObjID.String(), true, nil
 }
-*/
