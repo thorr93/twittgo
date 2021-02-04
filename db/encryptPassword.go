@@ -10,4 +10,6 @@ func EncryptPassword(pass string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(pass), price)
 
 	return string(bytes), err
+
+	//return bcrypt.GenerateFromPassword([]byte(pass), price)
 }

@@ -22,6 +22,8 @@ func Handling() {
 
 	//cuando el en navegador se pone registro y luego va a checkDB i el return es correcto registra en routes.Register. El metodo de llamado es POST para no mostrar los datos
 	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
+	router.HandleFunc("/searchUser", middlew.CheckDB(middlew.ValidJWT(routers.SeeUser))).Methods("GET")
 
 	//Miramos si hay puerto y si hay lo trae, si no la seteamos
 	PORT := os.Getenv("PORT")
