@@ -7,8 +7,8 @@ import (
 	"github.com/axi93/twittgo/db"
 )
 
-//SeeUser - Let extract the data from profile
-func SeeUser(w http.ResponseWriter, r *http.Request) {
+//SeeProfile - Let extract the data from profile
+func SeeProfile(w http.ResponseWriter, r *http.Request) {
 	//Check if we have and ID
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {

@@ -2,7 +2,6 @@ package routers
 
 import (
 	"errors"
-	"strings"
 
 	"github.com/axi93/twittgo/db"
 	"github.com/axi93/twittgo/models"
@@ -20,12 +19,12 @@ func ProcessToken(tk string) (*models.Claim, bool, string, error) {
 	myKey := []byte("MasterofDevolopment")
 	claims := &models.Claim{}
 	//Hara que el token se convierta en un vector y eliminar Bearer del tokn
-	splitToken := strings.Split(tk, "Bearer")
+	/*splitToken := strings.Split(tk, "Bearer")
 	if len(splitToken) != 2 {
 		return claims, false, string(""), errors.New("Token format incorrect")
 	}
 	tk = strings.TrimSpace(splitToken[1])
-
+	*/
 	tkn, err := jwt.ParseWithClaims(tk, claims, func(token *jwt.Token) (interface{}, error) {
 		return myKey, nil
 	})
