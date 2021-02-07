@@ -12,7 +12,7 @@ import (
 var MongoCN = ConnectDB()
 
 //Uso interno
-var clientOptions = options.Client().ApplyURI("mongodb+srv://admin:Lv3s5olo@twitter.9ehba.mongodb.net/<dbname>?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://admin:<password>@twitter.9ehba.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
 //ConnectDB - me permite conectar con al DB - Devuelve objeto de tipo mongo.Client, es decir devuelve una conexion
 func ConnectDB() *mongo.Client {
