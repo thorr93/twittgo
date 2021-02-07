@@ -24,7 +24,8 @@ func Handling() {
 	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
 	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
 	router.HandleFunc("/seeprofile", middlew.CheckDB(middlew.ValidJWT(routers.SeeProfile))).Methods("GET")
-
+	router.HandleFunc("/modifyprofile", middlew.CheckDB(middlew.ValidJWT(routers.ModifyProfile))).Methods("PUT")
+	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidJWT(routers.SaveTweet))).Methods("POST")
 	//Miramos si hay puerto y si hay lo trae, si no la seteamos
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
