@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-//SaveTweet es la estructura usada para los tweet
+//SaveTweet is the structure used for tweets
 type SaveTweet struct {
 	UserID  string    `bson:"userID" json:"userID,omitempty"`
 	Message string    `bson:"message" json:"message,omitempty"`

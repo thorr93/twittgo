@@ -10,7 +10,7 @@ import (
 //GenerateJWT generates the encrypt with JWT
 func GenerateJWT(t models.Users) (string, error) {
 	myKey := []byte("MasterofDevolopment")
-	//La parte de los datos
+	//The data part
 	paylod := jwt.MapClaims{
 		"email":            t.Email,
 		"nombre":           t.Nombre,
@@ -22,9 +22,9 @@ func GenerateJWT(t models.Users) (string, error) {
 		"_id":              t.ID.Hex(),
 		"exp":              time.Now().Add(time.Hour * 24).Unix(),
 	}
-	//Elegimos algormito con el que encriptara
+	//We choose something to encrypt with
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, paylod)
-	//Le paso el String de la firma
+	//The signature String is passed
 	tokenStr, err := token.SignedString(myKey)
 	if err != nil {
 		return tokenStr, err

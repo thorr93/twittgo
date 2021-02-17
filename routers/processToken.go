@@ -18,7 +18,8 @@ var IDUser string
 func ProcessToken(tk string) (*models.Claim, bool, string, error) {
 	myKey := []byte("MasterofDevolopment")
 	claims := &models.Claim{}
-	//Hara que el token se convierta en un vector y eliminar Bearer del tokn
+
+	//Will cause the token to become a vector and remove Bearer from the token.
 	/*splitToken := strings.Split(tk, "Bearer")
 	if len(splitToken) != 2 {
 		return claims, false, string(""), errors.New("Token format incorrect")

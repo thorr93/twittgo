@@ -13,19 +13,19 @@ func InsertRegister(u models.Users) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 
 	defer cancel()
-	//Aqui apunto a la base de datos y la collection
+
 	bd := MongoCN.Database("twittgo")
 	col := bd.Collection("users")
-	//Encripto la contraseña
+	//I encrypt the password
 	u.Password, _ = EncryptPassword(u.Password)
-	//Añado un solo registro
+	//I add a single record
 	result, err := col.InsertOne(ctx, u)
 	if err != nil {
 		return "", false, err
 	}
 
-	//Para obtener el ID
+	//To obtain the ID
 	ObjID, _ := result.InsertedID.(primitive.ObjectID)
-	//Retorno el objeto como string
+	//Retorn the object as string
 	return ObjID.String(), true, nil
 }

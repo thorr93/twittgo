@@ -21,7 +21,7 @@ func ReadTweet(ID string, page int64) ([]*models.ReturnTweets, bool) { //devuelv
 	var result []*models.ReturnTweets
 
 	condition := bson.M{
-		"userid": ID,
+		"userID": ID,
 	}
 
 	//Le doy la primera pagina, le resto -1 pero al ser pagina 1 es 1-1=0*20=0, por tanto coge los 20 primeros tweets. Segunda hoja 2-1*20=20, Skipea los primeros 20 tweets

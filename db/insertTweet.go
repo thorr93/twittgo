@@ -14,24 +14,24 @@ func InsertTweet(t models.SaveTweet) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 
 	defer cancel()
-	//Aqui apunto a la base de datos y la collection
+
 	bd := MongoCN.Database("twittgo")
 	col := bd.Collection("tweet")
 
-	//Necesitamos un documento exacto como el que viene en formato BSON. Aqui se guarda el que voy a guardar
+	//We need an exact document like the one that comes in BSON format. Here is the one I am going to save
 	register := bson.M{
 		"userID":  t.UserID,
 		"message": t.Message,
 		"fecha":   t.Fecha,
 	}
 
-	//hacemos el insert
+	//We make the insert
 	result, err := col.InsertOne(ctx, register)
 	if err != nil {
 		return "", false, err
 	}
-	//Si es okey devolvemos un ID del tweet creado
-	objID, _ := result.InsertedID.(primitive.ObjectID) //Del BSON que devuelve el InsertOne, extrae el ID del ultimo campo insertado y obtiene el ObjectID
+	//If it's okey we return the ID about the tweet created
+	objID, _ := result.InsertedID.(primitive.ObjectID) //of the BSON that returns the InsertOne, extracts the ID of the last inserted field and obtains the ObjectID
 	return objID.String(), true, nil
 
 }

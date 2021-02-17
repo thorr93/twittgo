@@ -20,13 +20,13 @@ func ModifyProfile(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var status bool
-	//err ya lo tengo inicialicado por eso le pongo el igual
+
 	status, err = db.ModifyRegister(t, IDUser)
 	if err != nil {
 		http.Error(w, "An error ocurred when we try to modify the register. Try again"+err.Error(), 400)
 		return
 	}
-	//No hay error pero tampoco se ha modificado
+
 	if status == false {
 		http.Error(w, "Imposible modify the register of the user", 400)
 		return

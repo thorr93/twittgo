@@ -13,7 +13,7 @@ import (
 //Login do Login
 func Login(w http.ResponseWriter, r *http.Request) {
 
-	//Seteamos el header donde el contenido indicamos que es tipo json
+	//We take the header where is all content
 	w.Header().Add("content-type", "application/json")
 
 	var t models.Users
@@ -23,7 +23,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "User and/or Password incorrect"+err.Error(), 400)
 		return
 	}
-	//Se crean validaciones, si email es equal 0
+	//We create the validation
 	if len(t.Email) == 0 {
 		http.Error(w, "The email of user is required", 400)
 		return

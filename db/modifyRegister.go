@@ -14,11 +14,11 @@ func ModifyRegister(u models.Users, ID string) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 
 	defer cancel()
-	//Aqui apunto a la base de datos y la collection
+
 	bd := MongoCN.Database("twittgo")
 	col := bd.Collection("users")
 
-	//make permite crear mapas o slices
+	//make allos create maps or slices
 	register := make(map[string]interface{})
 	if len(u.Nombre) > 0 {
 		register["nombre"] = u.Nombre
@@ -43,14 +43,14 @@ func ModifyRegister(u models.Users, ID string) (bool, error) {
 	}
 	register["fechaNacimiento"] = u.FechaNacimiento
 
-	//Realizamos el seteo del registro de actualizacion
+	//We perform the setting of the update record
 	updtString := bson.M{
 		"$set": register,
 	}
-	//indicamos el ID de usuario
+	//Indicate the ID of the user
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
-	//Añaidmos filtro para la actualizacion
+	//Add filter for upgrade
 	filter := bson.M{"_id": bson.M{"$eq": objID}} //eq=equal
 
 	_, err := col.UpdateOne(ctx, filter, updtString)

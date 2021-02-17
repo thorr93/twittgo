@@ -6,7 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-//ReturnTweets es la estructura usada para los tweet
+//ReturnTweets is the structure used for tweets
 type ReturnTweets struct {
 	ID      primitive.ObjectID `bson:"_id" json:"_id,omitempty"`
 	UserID  string             `bson:"userID" json:"userID,omitempty"`
