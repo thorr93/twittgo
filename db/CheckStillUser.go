@@ -8,7 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-//CheckStillUser recibe un email i comprueba si esta en la base de datos
+//CheckStillUser receive an email and check if it is in the database
 func CheckStillUser(email string) (models.Users, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 

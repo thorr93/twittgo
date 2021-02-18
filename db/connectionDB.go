@@ -12,7 +12,7 @@ import (
 var MongoCN = ConnectDB()
 
 //Uso interno
-var clientOptions = options.Client().ApplyURI("mongodb+srv://URL_MONGODB")
+var clientOptions = options.Client().ApplyURI("URL_MONGODB")
 
 //ConnectDB - Allos connect to DB
 func ConnectDB() *mongo.Client {
